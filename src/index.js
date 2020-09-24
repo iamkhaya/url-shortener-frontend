@@ -1,6 +1,9 @@
+/* eslint-disable import/order */
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { Provider } from 'react-redux';
+import makeStore from './store/createStore';
 import './styles/bootstrap.min.css';
 import './styles/custom.scss';
 import './styles/index.css';
@@ -13,25 +16,25 @@ import Home from './containers/home';
 
 import * as serviceWorker from './serviceWorker';
 
+const store = makeStore();
 ReactDOM.render(
-  <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route path="/shorten">
-          <Home />
-        </Route>
-        <Route path="/metrics">
-          <ShortUrlMetrics />
-        </Route>
-        <Route path="/upload">
-          <FileUpload />
-        </Route>
-      </Switch>
-    </Router>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <Router>
+        <Switch>
+          <Route path="/shorten">
+            <Home />
+          </Route>
+          <Route path="/metrics">
+            <ShortUrlMetrics />
+          </Route>
+          <Route path="/upload">
+            <FileUpload />
+          </Route>
+        </Switch>
+      </Router>
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root'),
 );
 
