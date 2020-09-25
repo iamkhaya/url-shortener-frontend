@@ -26,7 +26,6 @@ function* shortenUrl(action) {
 }
 
 function* homeSaga() {
-  // run fetchDataFromServer on every trigger action
   yield takeEvery([homeRoutine.TRIGGER], shortenUrl);
 }
 

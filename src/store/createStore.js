@@ -4,6 +4,7 @@ import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
 import homeSaga from 'containers/home/saga';
+import metricsSaga from 'containers/short_url_metrics/saga';
 import createReducer from './reducers';
 
 // const history = createBrowserHistory();
@@ -22,6 +23,7 @@ const makeStore = (context) => {
   const store = createStore(createReducer(), bindMiddleware([sagaMiddleware]));
 
   store.sagaTask = sagaMiddleware.run(homeSaga);
+  store.sagaTask = sagaMiddleware.run(metricsSaga);
 
   return store;
 };

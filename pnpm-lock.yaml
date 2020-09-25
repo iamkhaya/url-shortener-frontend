@@ -819,8 +819,8 @@ packages:
       '@babel/core': ^7.0.0-0
     resolution:
       integrity: sha512-mohW5q3uAEt8T45YT7Qc5ws6mWgJAaL/8BfWD9Dodo1A3RKWli8wTS+WiQ/knF+tXlPirW/1/MqzzGfCExKECA==
-  /@babel/plugin-transform-named-capturing-groups-regex/7.10.4_@babel+core@7.9.0:
-    dependencies:
+  ? /@babel/plugin-transform-named-capturing-groups-regex/7.10.4_@babel+core@7.9.0
+  : dependencies:
       '@babel/core': 7.9.0
       '@babel/helper-create-regexp-features-plugin': 7.10.4_@babel+core@7.9.0
     dev: false
@@ -1390,7 +1390,7 @@ packages:
       '@hapi/bourne': 1.3.2
       '@hapi/hoek': 8.5.1
       '@hapi/topo': 3.1.6
-    deprecated: 'joi is leaving the @hapi organization and moving back to ''joi'' (https://github.com/sideway/joi/issues/2411)'
+    deprecated: "joi is leaving the @hapi organization and moving back to 'joi' (https://github.com/sideway/joi/issues/2411)"
     dev: false
     resolution:
       integrity: sha512-entf8ZMOK8sc+8YfeOlM8pCfg3b5+WZIKBfUaaJT8UsjAAPjartzxIYm3TIbjvA4u+u++KbcXD38k682nVHDAQ==

@@ -77,7 +77,6 @@ function Home(props) {
             <Row>
               <Col sm="12" md={{ size: 6, offset: 3 }}>
                 <h3>We will shorten your url (for free) </h3>
-
                 <Form onSubmit={(e) => handleSubmit(e)}>
                   <FormGroup>
                     <Input

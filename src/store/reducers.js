@@ -7,6 +7,8 @@
 import { combineReducers } from 'redux-immutable';
 
 import homeReducer from 'containers/home/reducer';
+import metricsReducer from 'containers/short_url_metrics/reducer';
+
 /**
  * Merges the main reducer with the router state
  * and dynamically injected reducers
@@ -14,6 +16,7 @@ import homeReducer from 'containers/home/reducer';
 export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     home: homeReducer,
+    metrics: metricsReducer,
 
     ...injectedReducers,
   });
