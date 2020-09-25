@@ -30,7 +30,6 @@ function Home(props) {
   const handleSubmit = (evt) => {
     const { shortenUrl } = props;
     evt.preventDefault();
-    alert(`Submitting Name ${longUrl}`);
     shortenUrl(longUrl);
   };
 

@@ -3,6 +3,7 @@
 import { applyMiddleware, createStore } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
+import fileUploadSaga from 'containers/file_upload/saga';
 import homeSaga from 'containers/home/saga';
 import metricsSaga from 'containers/short_url_metrics/saga';
 import createReducer from './reducers';
@@ -24,6 +25,8 @@ const makeStore = (context) => {
 
   store.sagaTask = sagaMiddleware.run(homeSaga);
   store.sagaTask = sagaMiddleware.run(metricsSaga);
+  store.sagaTask = sagaMiddleware.run(fileUploadSaga);
+
 
   return store;
 };

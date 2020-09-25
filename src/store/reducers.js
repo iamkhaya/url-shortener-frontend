@@ -8,6 +8,7 @@ import { combineReducers } from 'redux-immutable';
 
 import homeReducer from 'containers/home/reducer';
 import metricsReducer from 'containers/short_url_metrics/reducer';
+import fileUploadReducer from 'containers/file_upload/reducer';
 
 /**
  * Merges the main reducer with the router state
@@ -17,6 +18,7 @@ export default function createReducer(injectedReducers = {}) {
   const rootReducer = combineReducers({
     home: homeReducer,
     metrics: metricsReducer,
+    fileUpload: fileUploadReducer,
 
     ...injectedReducers,
   });

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Container,
   Row,
@@ -11,21 +11,17 @@ import {
   Alert,
   Spinner,
   Table,
-} from 'reactstrap';
-import { PropTypes } from 'prop-types';
-import { connect } from 'react-redux';
+} from "reactstrap";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
 
-import Header from 'components/Header';
-import metricsRoutine from './routines';
+import Header from "components/Header";
+import metricsRoutine from "./routines";
 
-import {
-  STATE_LOADING,
-  STATE_ERROR,
-  STATE_OK,
-} from '../../constants';
+import { STATE_LOADING, STATE_ERROR, STATE_OK } from "../../constants";
 
 function ShortUrlMetrics(props) {
-  const [shortUrlId, setShortUrlId] = useState('');
+  const [shortUrlId, setShortUrlId] = useState("");
 
   const handleSubmit = (evt) => {
     const { getShortUrlMetrics } = props;
@@ -117,9 +113,9 @@ function ShortUrlMetrics(props) {
 
 function mapStateToProps(state) {
   return {
-    shortUrlMetrics: state.getIn(['metrics', 'shortUrlMetrics']),
-    containerState: state.getIn(['metrics', 'containerState']),
-    errorMessage: state.getIn(['metrics', 'errorMessage']),
+    shortUrlMetrics: state.getIn(["metrics", "shortUrlMetrics"]),
+    containerState: state.getIn(["metrics", "containerState"]),
+    errorMessage: state.getIn(["metrics", "errorMessage"]),
   };
 }
 
@@ -129,16 +125,16 @@ function mapDispatchToProps(dispatch) {
       dispatch(
         metricsRoutine.trigger({
           shortUrlId,
-        }),
+        })
       );
     },
   };
 }
 
 ShortUrlMetrics.defaultProps = {
-  shortenUrl: () => {},
-  shortUrl: '',
-  errorMessage: '',
+  shortenUrl: () => { },
+  shortUrl: "",
+  errorMessage: "",
 };
 
 ShortUrlMetrics.propTypes = {
