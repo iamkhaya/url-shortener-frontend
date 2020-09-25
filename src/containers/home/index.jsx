@@ -18,7 +18,6 @@ import Header from 'components/Header';
 import homeRoutine from './routines';
 
 import {
-  STATE_NEW,
   STATE_LOADING,
   STATE_ERROR,
   STATE_OK,

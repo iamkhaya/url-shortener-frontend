@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Container,
   Row,
@@ -10,18 +10,17 @@ import {
   FormGroup,
   Alert,
   Spinner,
-  Table,
-} from "reactstrap";
-import { PropTypes } from "prop-types";
-import { connect } from "react-redux";
+} from 'reactstrap';
+import { PropTypes } from 'prop-types';
+import { connect } from 'react-redux';
 
-import Header from "components/Header";
-import fileUploadRoutine from "./routines";
+import Header from 'components/Header';
+import fileUploadRoutine from './routines';
 
-import { STATE_LOADING, STATE_ERROR, STATE_OK } from "../../constants";
+import { STATE_LOADING, STATE_ERROR, STATE_OK } from '../../constants';
 
 function FileUpload(props) {
-  const [longUrlsFile, setLongUrlsFile] = useState("");
+  const [longUrlsFile, setLongUrlsFile] = useState('');
 
   const handleSubmit = (evt) => {
     const { getShortUrlsFile } = props;
@@ -29,11 +28,15 @@ function FileUpload(props) {
     getShortUrlsFile(longUrlsFile);
   };
 
-  const { processedFile, containerState, errorMessage } = props;
+  const { containerState, errorMessage } = props;
 
   function displayShortUrlMetrics() {
     if (containerState === STATE_OK) {
-      return (<div><p>File succesfully downloaded !</p></div>);
+      return (
+        <div>
+          <p>File succesfully downloaded !</p>
+        </div>
+      );
     }
     if (containerState === STATE_LOADING) {
       return (
@@ -93,9 +96,9 @@ function FileUpload(props) {
 
 function mapStateToProps(state) {
   return {
-    processedFile: state.getIn(["fileUpload", "processedFile"]),
-    containerState: state.getIn(["fileUpload", "containerState"]),
-    errorMessage: state.getIn(["fileUpload", "errorMessage"]),
+    processedFile: state.getIn(['fileUpload', 'processedFile']),
+    containerState: state.getIn(['fileUpload', 'containerState']),
+    errorMessage: state.getIn(['fileUpload', 'errorMessage']),
   };
 }
 
@@ -105,16 +108,16 @@ function mapDispatchToProps(dispatch) {
       dispatch(
         fileUploadRoutine.trigger({
           longUrlsFile,
-        })
+        }),
       );
     },
   };
 }
 
 FileUpload.defaultProps = {
-  shortenUrl: () => { },
-  shortUrl: "",
-  errorMessage: "",
+  shortenUrl: () => {},
+  shortUrl: '',
+  errorMessage: '',
 };
 
 FileUpload.propTypes = {

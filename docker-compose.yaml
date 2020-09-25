@@ -1,0 +1,7 @@
+version: '3'
+services:
+  url-shortener-frontend:
+    stdin_open: true
+    build: .
+    ports:
+      - "3006:3006"

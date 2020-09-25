@@ -15,19 +15,15 @@ function* fetchProcessedFile(action) {
     yield put(fileUploadRoutine.request());
 
     const formData = new FormData();
-		formData.append('short_urls_file', longUrlsFile);
-		// const response = yield call(
-		// 	axiosClient().post,
-		// 	customerIdentificationURL,
-		// 	formData,
-		// );
+    formData.append('short_urls_file', longUrlsFile);
 
     const response = yield call(axios.post, getProcessedFileUrl, formData);
 
+    // download the file response
     const url = window.URL.createObjectURL(new Blob([response.data]));
     const link = document.createElement('a');
     link.href = url;
-    link.setAttribute('download', 'test.csv'); //or any other extension
+    link.setAttribute('download', 'test.csv');
     document.body.appendChild(link);
     link.click();
 

@@ -27,7 +27,6 @@ const makeStore = (context) => {
   store.sagaTask = sagaMiddleware.run(metricsSaga);
   store.sagaTask = sagaMiddleware.run(fileUploadSaga);
 
-
   return store;
 };
 
